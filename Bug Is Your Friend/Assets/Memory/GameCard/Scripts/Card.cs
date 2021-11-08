@@ -9,8 +9,9 @@ public class Card : MonoBehaviour
     public Image Image;
     public Sprite backImage;
     Sprite oldImage;
-    public string cardId;
-    bool playerisNotOnIt;
+    public Card CardsPair;
+    public bool blockInput;
+
 
     private void Start()
     {
@@ -20,19 +21,26 @@ public class Card : MonoBehaviour
         //cardId = backImage.name;
     }
 
+    public void AiFlipTheCard()
+    {
+        //GameEvents.current 
+        GetComponent<CardAnimatorControler>().subscribeToGameEvents();
+        GameEvents.current.StartFilpAni();        
+    }
+
     public void FlipTheCard()
     {
-        if (playerisNotOnIt)
+        if (blockInput)
         {
-            stopPlayer();
             GetComponent<CardAnimatorControler>().subscribeToGameEvents();
             GameEvents.current.StartFilpAni();
+            GameEvents.current.PlayerFoundBug();
         }
     }
 
     public void CheckCard()
     {
-        GameEvents.current.CheckCard(cardId);
+        GameEvents.current.CheckCard(CardsPair);
     }
 
     public void ChangeImage()
@@ -49,11 +57,17 @@ public class Card : MonoBehaviour
 
     void stopPlayer()
     {
-        playerisNotOnIt = false;
+        blockInput = false;
+        Image.GetComponent<Button>().enabled = false;
     }
 
     public void StartPalyer()
     {
-        playerisNotOnIt = true;
+        blockInput = true;
+    }
+
+    void Remove()
+    {
+        Destroy(gameObject);
     }
 }

@@ -25,7 +25,7 @@ public class PointsManager : MonoBehaviour
     {
         int aiPoints = int.Parse(AiPoints.text);
         aiPoints++;
-        PlayerPoints.text = aiPoints.ToString();
+        AiPoints.text = aiPoints.ToString();
     }
 
 

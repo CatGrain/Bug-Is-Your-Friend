@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public delegate void ActionEventHandler();
-public delegate void ActionStringEventHandler(string String);
+public delegate void ActionStringEventHandler(Card id);
 
 public class GameEvents : MonoBehaviour
 {
@@ -16,11 +16,11 @@ public class GameEvents : MonoBehaviour
     }
 
     public event ActionStringEventHandler onCheckCard;
-    public void CheckCard(string cardId)
+    public void CheckCard(Card Id)
     {
         if(onCheckCard != null)
         {
-            onCheckCard(cardId);
+            onCheckCard(Id);
         }
     }
 
@@ -82,4 +82,23 @@ public class GameEvents : MonoBehaviour
         addPoint();
     }
 
+
+    public event ActionEventHandler changePlayer;
+    public void ChangePlayer()
+    {
+        changePlayer();
+    }
+
+    public event ActionEventHandler playerFoundBug;
+    public void PlayerFoundBug()
+    {
+        playerFoundBug();
+    }
+
+
+    public event ActionEventHandler strartAi;
+    public void StartAi()
+    {
+        strartAi();
+    }
 }

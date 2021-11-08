@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardReview : MonoBehaviour
 {
-    public string lastCardId;
+    public Card lastCardId;
 
     // Start is called before the first frame update
     void Start()
@@ -12,29 +12,31 @@ public class CardReview : MonoBehaviour
         GameEvents.current.onCheckCard += CheckCard;
     }
 
-    void CheckCard(string cardId)
+    void CheckCard(Card Id)
     {
-        if(lastCardId != "")
+        if(lastCardId != null)
         {
-            if (lastCardId == cardId)
+            if (lastCardId.CardsPair == Id || Id.CardsPair == lastCardId)
             {
-                Debug.Log(lastCardId + cardId);
+                //Debug.Log(lastCardId + cardId);
                 Debug.Log("Es Ist ein Pärchen");
-                lastCardId = "";
+                lastCardId = null;
                 GameEvents.current.AddPoint();
-                GameEvents.current.StartReemoveAni();              
+                GameEvents.current.StartReemoveAni();                
             }
             else
             {
                 Debug.Log("Es Ist Kein Pärchen");
-                lastCardId = "";
-
-                GameEvents.current.StartCoverUpAni();
+                lastCardId = null;
+                GameEvents.current.ChangePlayer();
+                GameEvents.current.StartCoverUpAni();              
             }
         }
         else
         {
-            lastCardId = cardId;
+            lastCardId = Id;
         }
     }  
+
+
 }
