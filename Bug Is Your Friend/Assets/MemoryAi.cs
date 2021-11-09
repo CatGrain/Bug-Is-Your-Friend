@@ -6,7 +6,7 @@ public class MemoryAi : MonoBehaviour
 {
     public GameObject CardBoard;
     int pairsCount;
-    public List<int> previousIndexes;
+    public List<Card> cards;
     public bool test;
 
     private void Start()
@@ -27,51 +27,42 @@ public class MemoryAi : MonoBehaviour
     void StartAiTrain()
     {
 
-        Card revalCard;
-        revalCard = GetCard();
-
-        Card card = revalCard;
-        Card cardPair = revalCard.CardsPair;
-
-        RevealCards(card,cardPair);
+        Card[] revalCard;
+        revalCard = GetCard();       
+        RevealCards(revalCard);
     }
 
-    Card GetCard()
+    Card[] GetCard()
     {
-        int index;
+        Card[] cards;
 
-        while (true)
-        {
-            bool breakLoop = false;
-            index = Random.Range(0, CardBoard.transform.childCount);
+        
 
-            foreach (var item in previousIndexes)
-            {
-                if(item == index)
-                {
-                    break;
-                }
-                else
-                {
-                    breakLoop = true;
-                }
-            }
-
-            if(breakLoop)
-            {
-                break;
-            }
-        }
                
-        Card card = CardBoard.transform.GetChild(index).GetComponentInParent<Card>();
-        return card;
+        Card card = CardBoard.transform.GetChild(0).GetComponentInParent<Card>();
+        return new Card[0];
     }
 
-    void RevealCards(Card cardOne,Card cardTwo)
+
+    void RevealCards(Card[] cards)
     {
-        cardOne.AiFlipTheCard();
-        cardTwo.AiFlipTheCard();
+        foreach (var item in cards)
+        {
+            item.AiFlipTheCard();
+        }
     }
 
+    List<Card> CreateCardList()
+    {
+        List<Card> cards = new List<Card>();
 
+        for (int i = 0; i < CardBoard.transform.childCount; i++)
+        {
+            Transform curentChild = transform.GetChild(i);
+            cards.Add(curentChild.GetComponent<Card>());
+        }
+
+
+        return cards;
+    }
 }
