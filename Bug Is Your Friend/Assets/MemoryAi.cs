@@ -13,6 +13,7 @@ public class MemoryAi : MonoBehaviour
     {
         pairsCount = CardBoard.transform.childCount;
         GameEvents.current.strartAi += StartAiTrain;
+        cards = CreateCardList();
     }
 
     private void Update()
@@ -26,21 +27,24 @@ public class MemoryAi : MonoBehaviour
 
     void StartAiTrain()
     {
-
-        Card[] revalCard;
-        revalCard = GetCard();       
-        RevealCards(revalCard);
+        if (cards.Count > 0)
+        {
+            Card[] revalCard;
+            revalCard = GetCard();
+            RevealCards(revalCard);
+            RemoveCards(revalCard);
+        }
     }
 
     Card[] GetCard()
     {
-        Card[] cards;
+        Card[] cards = new Card[2];
 
-        
+        Card picketCard = PickRandomCard();
+        cards[0] = picketCard;
+        cards[1] = picketCard.CardsPair;
 
-               
-        Card card = CardBoard.transform.GetChild(0).GetComponentInParent<Card>();
-        return new Card[0];
+        return cards;
     }
 
 
@@ -52,16 +56,37 @@ public class MemoryAi : MonoBehaviour
         }
     }
 
+    Card PickRandomCard()
+    {
+        int randomIndex = Random.Range(0,cards.Count);
+        return cards[randomIndex];
+    }
+
+
+    void RemoveCards(Card[] cardsToRemove)
+    {
+        if (cards.Count > 0)
+        {
+            Debug.Log("Kommt es hier von");
+            foreach (var item in cardsToRemove)
+            {
+                cards.Remove(item);
+            }
+        }
+    }
+
     List<Card> CreateCardList()
     {
         List<Card> cards = new List<Card>();
 
+        Debug.Log(CardBoard.transform.childCount - 1);
+
         for (int i = 0; i < CardBoard.transform.childCount; i++)
         {
-            Transform curentChild = transform.GetChild(i);
+            Debug.Log(i);
+            Transform curentChild = CardBoard.transform.GetChild(i);
             cards.Add(curentChild.GetComponent<Card>());
         }
-
 
         return cards;
     }
