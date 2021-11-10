@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 public delegate void ActionEventHandler();
-public delegate void ActionStringEventHandler(Card id);
+public delegate void ActionCardEventHandler(Card id);
+public delegate void ActionStringEventHandler(string stringContennt);
 
 public class GameEvents : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    public event ActionStringEventHandler onCheckCard;
+    public event ActionCardEventHandler onCheckCard;
     public void CheckCard(Card Id)
     {
         if(onCheckCard != null)
@@ -101,4 +102,21 @@ public class GameEvents : MonoBehaviour
     {
         strartAi();
     }
+
+
+    public event ActionStringEventHandler startInfoPanel;
+    public void StartInfoPanel(string info)
+    {
+        startInfoPanel(info);
+    }
+
+
+    public event ActionEventHandler startInfoPanelAni;
+
+    public void StartInfoPanelAni()
+    {
+        startInfoPanelAni();
+    }
+
+
 }

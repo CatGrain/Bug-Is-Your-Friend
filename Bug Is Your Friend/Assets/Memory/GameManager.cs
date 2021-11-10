@@ -73,11 +73,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Delay");
         waitOnPlayer = true;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.9f);      
         waitOnPlayer = false;
         curentPlayer = PlayerTyp.Ai;
         GameEvents.current.StopPlayer();
-        GameEvents.current.StartAi();
+        GameEvents.current.StartAi();        
         Debug.Log("zu Ai Gewechselt");
+        GameEvents.current.StartInfoPanel("Ai's turn");
     }
 }
