@@ -6,11 +6,17 @@ public class CardReview : MonoBehaviour
 {
     public Card lastCardId;
 
+    public List<Card> cardscurrentlyRevealed;
+
+
     // Start is called before the first frame update
     void Start()
     {
         GameEvents.current.onCheckCard += CheckCard;
     }
+
+
+
 
     void CheckCard(Card Id)
     {
@@ -38,5 +44,30 @@ public class CardReview : MonoBehaviour
         }
     }  
 
+
+    void checkCard(Card Id)
+    {
+        if(CheckRevealedCards(Id))
+        {
+
+        }
+        else
+        {
+            cardscurrentlyRevealed.Add(Id);
+        }
+    }
+
+    bool CheckRevealedCards(Card card)
+    {
+        foreach (var item in cardscurrentlyRevealed)
+        {
+            if(item.CardsPair == card || card.CardsPair == item)
+            {
+                return true;
+            }
+        }
+     
+        return false;
+    }
 
 }
