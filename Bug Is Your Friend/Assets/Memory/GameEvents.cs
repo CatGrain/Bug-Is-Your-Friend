@@ -118,5 +118,42 @@ public class GameEvents : MonoBehaviour
         startInfoPanelAni();
     }
 
+    public event ActionEventHandler changeImage;
+
+    public void ChangeImage()
+    {
+        if(changeImage != null)
+        changeImage();
+    }   
+
+
+    public event ActionEventHandler changeImageBack;
+
+    public void ChangeImageBack()
+    {
+        if (changeImage != null)
+            changeImageBack();
+    }
+
+    public event ActionCardEventHandler removeCardFromList;
+
+    public void RemoveCardFromList(Card card)
+    {
+        removeCardFromList(card);
+    }
+
+    public event ActionEventHandler switchCheck;
+
+    public void SwitchCheck()
+    {
+        switchCheck();
+    }
+
+    public event ActionEventHandler stopAi; 
+
+    public void StopAi()
+    {
+        stopAi();
+    }
 
 }

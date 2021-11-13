@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5092613223235170351}
   - component: {fileID: 5092613223235170344}
   - component: {fileID: 5092613223235170345}
+  - component: {fileID: -6443982790748375141}
   m_Layer: 5
   m_Name: Card Pair One
   m_TagString: Untagged
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5092613223235170344}
+--- !u!114 &-6443982790748375141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092613223235170347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebb7b75a06c64d46903e4755131965a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5092613223448332306
 GameObject:
   m_ObjectHideFlags: 0

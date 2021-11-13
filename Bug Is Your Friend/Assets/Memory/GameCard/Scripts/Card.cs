@@ -11,11 +11,15 @@ public class Card : MonoBehaviour
     Sprite oldImage;
     public Card CardsPair;
     public bool blockInput;
-
+    CardAnimatorControler cardAnimatorControler;
+    bool CardRevealed;
+    public bool CardRemoved = false;
 
     private void Start()
     {
+        Debug.Log("Card is :" + CardRemoved);
         StartPalyer();
+        cardAnimatorControler = GetComponent<CardAnimatorControler>();
         GameEvents.current.startPlayer += StartPalyer;
         GameEvents.current.stopPlayer += stopPlayer;
         //cardId = backImage.name;
@@ -24,34 +28,43 @@ public class Card : MonoBehaviour
     public void AiFlipTheCard()
     {
         //GameEvents.current 
+        CardRevealed = true;
         GetComponent<CardAnimatorControler>().subscribeToGameEvents();
-        GameEvents.current.StartFilpAni();        
+        GameEvents.current.StartFilpAni();     
     }
 
     public void FlipTheCard()
     {
         if (blockInput)
         {
+            CardRevealed = true;
             GetComponent<CardAnimatorControler>().subscribeToGameEvents();
             GameEvents.current.StartFilpAni();
-            GameEvents.current.PlayerFoundBug();
+            //GameEvents.current.PlayerFoundBug();
+            GameEvents.current.changeImage += ChangeImage;
+            GameEvents.current.changeImageBack += ChangeImageBack;
+            GameEvents.current.StopAi();
         }
     }
 
+    /*
     public void CheckCard()
     {
-        GameEvents.current.CheckCard(CardsPair);
+        GameEvents.current.CheckCard(this);
     }
+    */
 
     public void ChangeImage()
     {
         oldImage = Image.sprite;
         Image.sprite = backImage;
+        GameEvents.current.changeImage -= ChangeImage;
     }
 
     public void ChangeImageBack()
-    {
+    {       
         Image.sprite = oldImage;
+        GameEvents.current.changeImageBack -= ChangeImageBack;
     }
 
 
@@ -64,10 +77,17 @@ public class Card : MonoBehaviour
     public void StartPalyer()
     {
         blockInput = true;
+        Image.GetComponent<Button>().enabled = true;
     }
 
-    void Remove()
+    public void TurnCard()
     {
-        Destroy(gameObject);
+        cardAnimatorControler.CoverUpAni();
+    }
+
+    public void Remove()
+    {
+        CardRemoved = true;
+        cardAnimatorControler.RemoveCardAni();
     }
 }

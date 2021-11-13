@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerTyp curentPlayer;
+    public PlayerTyp curentPlayer;
     bool waitOnPlayer = false;
 
     // Start is called before the first frame update
@@ -14,20 +14,20 @@ public class GameManager : MonoBehaviour
         GameEvents.current.addPoint += AddCurentPlayerPoints;
         GameEvents.current.changePlayer += ChangeCurentPlayer;
         GameEvents.current.playerFoundBug += StoppAiDelay;
+        GameEvents.current.stopAi += StoppAiDelay;
     }
 
     void AddCurentPlayerPoints()
     {
         if(curentPlayer == PlayerTyp.Player)
-        {           
-            StoppAiDelay();
-            GameEvents.current.AddPlayerPoints();
+        {                    
+            GameEvents.current.AddPlayerPoints();           
         }
         else if(curentPlayer == PlayerTyp.Ai)
         {
-            StartCoroutine("AiStartDelay");            
-            GameEvents.current.AddAiPoints();
-           
+            StartCoroutine("AiStartDelay");
+            GameEvents.current.StopPlayer();
+            GameEvents.current.AddAiPoints();         
         }
     }
 
@@ -42,13 +42,13 @@ public class GameManager : MonoBehaviour
         }
         else if(curentPlayer == PlayerTyp.Player)
         {
-           StartCoroutine("aiDelay");
+            StartCoroutine("aiDelay");
         }
     }
 
 
 
-    enum PlayerTyp
+    public enum PlayerTyp
     {
         Player = 0,
         Ai = 1,
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AiStartDelay()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.3f);
         GameEvents.current.StartAi();
     }
 
@@ -80,5 +80,6 @@ public class GameManager : MonoBehaviour
         GameEvents.current.StartAi();        
         Debug.Log("zu Ai Gewechselt");
         GameEvents.current.StartInfoPanel("Ai's turn");
+        //GameEvents.current.SwitchCheck();
     }
 }

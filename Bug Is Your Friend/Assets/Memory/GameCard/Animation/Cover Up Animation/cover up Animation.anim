@@ -236,7 +236,7 @@ AnimationClip:
   - time: 0.33333334
     functionName: ChangeImageBack
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: fa761a712f45048428bd33dbe604289b, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 8ebb7b75a06c64d46903e4755131965a, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

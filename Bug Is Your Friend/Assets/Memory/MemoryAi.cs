@@ -8,12 +8,15 @@ public class MemoryAi : MonoBehaviour
     int pairsCount;
     public List<Card> cards;
     public bool test;
+    bool RenewedCardDeck;
+
 
     private void Start()
     {
         pairsCount = CardBoard.transform.childCount;
         GameEvents.current.strartAi += StartAiTrain;
         cards = CreateCardList();
+        RenewedCardDeck = true;
     }
 
     private void Update()
@@ -27,8 +30,15 @@ public class MemoryAi : MonoBehaviour
 
     void StartAiTrain()
     {
-        if (cards.Count > 0)
+        if(RenewedCardDeck)
         {
+            RenewedCardDeck = false;
+            cards = CreateCardList();
+        }
+
+        Debug.Log("Ai Startet Züg");
+        if (cards.Count > 0)
+        {            
             Card[] revalCard;
             revalCard = GetCard();
             RevealCards(revalCard);
@@ -38,11 +48,15 @@ public class MemoryAi : MonoBehaviour
 
     Card[] GetCard()
     {
+        Debug.Log("Get Card");
+
         Card[] cards = new Card[2];
 
         Card picketCard = PickRandomCard();
         cards[0] = picketCard;
         cards[1] = picketCard.CardsPair;
+
+        Debug.Log("PickeztCard" + picketCard.name);
 
         return cards;
     }
@@ -84,8 +98,10 @@ public class MemoryAi : MonoBehaviour
         for (int i = 0; i < CardBoard.transform.childCount; i++)
         {
             Debug.Log(i);
-            Transform curentChild = CardBoard.transform.GetChild(i);
-            cards.Add(curentChild.GetComponent<Card>());
+            Card CurentCard = CardBoard.transform.GetChild(i).GetComponent<Card>();
+
+            if(!CurentCard.CardRemoved)
+            cards.Add(CurentCard);
         }
 
         return cards;

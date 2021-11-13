@@ -28,5 +28,5 @@ public class PointsManager : MonoBehaviour
         AiPoints.text = aiPoints.ToString();
     }
 
-
+  
 }

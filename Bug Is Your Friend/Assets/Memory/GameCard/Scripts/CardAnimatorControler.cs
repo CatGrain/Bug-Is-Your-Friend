@@ -8,20 +8,22 @@ public class CardAnimatorControler : MonoBehaviour
 
     public void subscribeToGameEvents()
     {
-        GameEvents.current.StratCardFlipAni += FlipAni;
-        GameEvents.current.StratCardCoverUpAni += CoverUpAni;
-        GameEvents.current.StartRemoveAni += RemoveCardAni;
+       GameEvents.current.StratCardFlipAni += FlipAni;
+       GameEvents.current.StratCardCoverUpAni += CoverUpAni;
+       GameEvents.current.StartRemoveAni += RemoveCardAni;
     }
+
+    
 
     void FlipAni()
     {
-        Debug.Log("Flip");
+        Debug.Log("Flip");        
         animator.SetBool("Reval",true);
         animator.SetBool("CoverUp", false);
         GameEvents.current.StratCardFlipAni -= FlipAni;
     }
 
-    void CoverUpAni()
+    public void CoverUpAni()
     {      
         Debug.Log("Cover Up");
         animator.SetBool("CoverUp", true);
@@ -30,7 +32,7 @@ public class CardAnimatorControler : MonoBehaviour
         GameEvents.current.StartRemoveAni -= RemoveCardAni;
     }
 
-    void RemoveCardAni()
+    public void RemoveCardAni()
     {
         animator.SetBool("Remove", true);
         GameEvents.current.StartRemoveAni -= RemoveCardAni;
