@@ -7,9 +7,9 @@ public delegate void ActionEventHandler();
 public delegate void ActionCardEventHandler(Card id);
 public delegate void ActionStringEventHandler(string stringContennt);
 
-public class GameEvents : MonoBehaviour
+public class MemoryGameEvents : MonoBehaviour
 {
-    public static GameEvents current;
+    public static MemoryGameEvents current;
 
     private void Awake()
     {

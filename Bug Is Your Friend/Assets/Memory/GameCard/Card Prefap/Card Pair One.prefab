@@ -100,7 +100,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -153,6 +153,7 @@ MonoBehaviour:
   backImage: {fileID: 21300000, guid: ed0f06f2fcf156f45ada638d1b0941fa, type: 3}
   CardsPair: {fileID: 8896371429887921001, guid: d408c832f717391489c21ae4a486f6c6, type: 3}
   blockInput: 0
+  CardRemoved: 0
 --- !u!95 &5092613223235170344
 Animator:
   serializedVersion: 3

@@ -10,8 +10,8 @@ public class PointsManager : MonoBehaviour
 
     private void Start()
     {
-        GameEvents.current.addAiPoints += AddAiPoints;
-        GameEvents.current.addPlayerPoints += AddPlayerPoints;
+        MemoryGameEvents.current.addAiPoints += AddAiPoints;
+        MemoryGameEvents.current.addPlayerPoints += AddPlayerPoints;
     }
 
     void AddPlayerPoints()

@@ -6,6 +6,7 @@ public class CardReview : MonoBehaviour
 {
     public Transform allCards;
     public Card lastCardId;
+    public Card SecondCard;
     public List<Card> cardscurrentlyRevealed;
     public List<Card> coupleCards;
     bool AiCheck;
@@ -13,8 +14,8 @@ public class CardReview : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameEvents.current.switchCheck += SwitchCheck;
-        GameEvents.current.onCheckCard += checkCard;
+        MemoryGameEvents.current.switchCheck += SwitchCheck;
+        MemoryGameEvents.current.onCheckCard += checkCard;
         //GameEvents.current.removeCardFromList += RemoveCardFromList;
     }
 
@@ -28,20 +29,8 @@ public class CardReview : MonoBehaviour
     {
         if(lastCardId != null)
         {
-            if (lastCardId.CardsPair == Id || Id.CardsPair == lastCardId)
-            {               
-                Debug.Log("Es Ist ein Pärchen");
-                lastCardId = null;
-                GameEvents.current.AddPoint();
-                GameEvents.current.StartReemoveAni();                
-            }
-            else
-            {
-                Debug.Log("Es Ist Kein Pärchen");
-                lastCardId = null;
-                GameEvents.current.ChangePlayer();
-                GameEvents.current.StartCoverUpAni();              
-            }
+            SecondCard = Id;
+            Invoke("CompareCardS", 0.7f);          
         }
         else
         {
@@ -49,13 +38,32 @@ public class CardReview : MonoBehaviour
         }
     }  
 
-    
+    bool CompareCardS()
+    {
+        if (lastCardId.CardsPair == SecondCard || SecondCard.CardsPair == lastCardId)
+        {
+            Debug.Log("Es Ist ein Pärchen");
+            lastCardId = null;
+            MemoryGameEvents.current.AddPoint();
+            MemoryGameEvents.current.StartReemoveAni();
+            return true;
+        }
+        else
+        {
+            Debug.Log("Es Ist Kein Pärchen");
+            lastCardId = null;
+            MemoryGameEvents.current.ChangePlayer();
+            MemoryGameEvents.current.StartCoverUpAni();
+            return false;
+        }
+    }
 
     public void checkCard(Card Id)
     {
         if (AiCheck)
         {
-            CheckCard(Id);
+
+             CheckCard(Id);
         }
         else
         {
@@ -75,16 +83,13 @@ public class CardReview : MonoBehaviour
     {      
         if(cardscurrentlyRevealed.Count > 0)
         {
-            Debug.Log("Ai wird gestartet");
-            RemoveFalseCard();
-            GameEvents.current.ChangePlayer();
+            Debug.Log("Ai wird gestartet");            
+            MemoryGameEvents.current.ChangePlayer();
+            
         }      
         else
-        {
-            if (FindObjectOfType<GameManager>().curentPlayer == GameManager.PlayerTyp.Player)
-            {
-                GameEvents.current.StartPlayer();
-            }
+        {         
+            MemoryGameEvents.current.StartPlayer();          
         }
 
         cardscurrentlyRevealed.Clear();
@@ -92,10 +97,8 @@ public class CardReview : MonoBehaviour
 
     void RemoveFalseCard()
     {
-        foreach (var item in cardscurrentlyRevealed)
-        {
-            item.TurnCard();
-        }    
+        MemoryGameEvents.current.StartCoverUpAni();
+        ResultEvaluation();
     }
 
     void RemoveCardCoupels()
@@ -109,7 +112,7 @@ public class CardReview : MonoBehaviour
             if(index % 2 == 0)
             {
                 Debug.Log("Index " + index);
-                GameEvents.current.AddPoint();           
+                MemoryGameEvents.current.AddPoint();           
             }
 
             item.Remove();
@@ -117,7 +120,7 @@ public class CardReview : MonoBehaviour
         }
 
         coupleCards.Clear();
-        ResultEvaluation();
+        RemoveFalseCard();        
     }
 
     void FinalCheckCards()
@@ -141,12 +144,14 @@ public class CardReview : MonoBehaviour
 
     IEnumerator CheckTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Finale Überprüfung");
-        GameEvents.current.StopPlayer();
+        MemoryGameEvents.current.StopPlayer();
         FinalCheckCards();
     }
      
+   
+
 }
 
 

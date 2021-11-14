@@ -10,13 +10,13 @@ public class InfoPanel : MonoBehaviour
 
     private void Start()
     {
-        GameEvents.current.startInfoPanel += StartInfoPanel;
+        MemoryGameEvents.current.startInfoPanel += StartInfoPanel;
     }
 
     void StartInfoPanel(string info)
     {
         ChangeText(info);
-        GameEvents.current.StartInfoPanelAni();
+        MemoryGameEvents.current.StartInfoPanelAni();
     }
 
 

@@ -8,7 +8,7 @@ public class InfoPanelAnimationContzroler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameEvents.current.startInfoPanelAni += StartInfoPanelAni;
+        MemoryGameEvents.current.startInfoPanelAni += StartInfoPanelAni;
     }
 
     void StartInfoPanelAni()

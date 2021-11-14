@@ -20,8 +20,8 @@ public class Card : MonoBehaviour
         Debug.Log("Card is :" + CardRemoved);
         StartPalyer();
         cardAnimatorControler = GetComponent<CardAnimatorControler>();
-        GameEvents.current.startPlayer += StartPalyer;
-        GameEvents.current.stopPlayer += stopPlayer;
+        MemoryGameEvents.current.startPlayer += StartPalyer;
+        MemoryGameEvents.current.stopPlayer += stopPlayer;
         //cardId = backImage.name;
     }
 
@@ -30,7 +30,8 @@ public class Card : MonoBehaviour
         //GameEvents.current 
         CardRevealed = true;
         GetComponent<CardAnimatorControler>().subscribeToGameEvents();
-        GameEvents.current.StartFilpAni();     
+        MemoryGameEvents.current.StartFilpAni();
+        MemoryGameEvents.current.CheckCard(this);
     }
 
     public void FlipTheCard()
@@ -39,11 +40,12 @@ public class Card : MonoBehaviour
         {
             CardRevealed = true;
             GetComponent<CardAnimatorControler>().subscribeToGameEvents();
-            GameEvents.current.StartFilpAni();
+            MemoryGameEvents.current.StartFilpAni();
             //GameEvents.current.PlayerFoundBug();
-            GameEvents.current.changeImage += ChangeImage;
-            GameEvents.current.changeImageBack += ChangeImageBack;
-            GameEvents.current.StopAi();
+            MemoryGameEvents.current.changeImage += ChangeImage;
+            MemoryGameEvents.current.changeImageBack += ChangeImageBack;
+            MemoryGameEvents.current.StopAi();
+            MemoryGameEvents.current.CheckCard(this);
         }
     }
 
@@ -58,13 +60,13 @@ public class Card : MonoBehaviour
     {
         oldImage = Image.sprite;
         Image.sprite = backImage;
-        GameEvents.current.changeImage -= ChangeImage;
+        MemoryGameEvents.current.changeImage -= ChangeImage;
     }
 
     public void ChangeImageBack()
     {       
         Image.sprite = oldImage;
-        GameEvents.current.changeImageBack -= ChangeImageBack;
+        MemoryGameEvents.current.changeImageBack -= ChangeImageBack;
     }
 
 

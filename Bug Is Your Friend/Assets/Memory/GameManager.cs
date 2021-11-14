@@ -11,23 +11,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         curentPlayer = PlayerTyp.Player;
-        GameEvents.current.addPoint += AddCurentPlayerPoints;
-        GameEvents.current.changePlayer += ChangeCurentPlayer;
-        GameEvents.current.playerFoundBug += StoppAiDelay;
-        GameEvents.current.stopAi += StoppAiDelay;
+        MemoryGameEvents.current.addPoint += AddCurentPlayerPoints;
+        MemoryGameEvents.current.changePlayer += ChangeCurentPlayer;
+        MemoryGameEvents.current.playerFoundBug += StoppAiDelay;
+        MemoryGameEvents.current.stopAi += StoppAiDelay;
     }
 
     void AddCurentPlayerPoints()
     {
         if(curentPlayer == PlayerTyp.Player)
         {                    
-            GameEvents.current.AddPlayerPoints();           
+            MemoryGameEvents.current.AddPlayerPoints();
+            
         }
         else if(curentPlayer == PlayerTyp.Ai)
-        {
+        {            
             StartCoroutine("AiStartDelay");
-            GameEvents.current.StopPlayer();
-            GameEvents.current.AddAiPoints();         
+            
+            MemoryGameEvents.current.AddAiPoints();         
         }
     }
 
@@ -37,11 +38,15 @@ public class GameManager : MonoBehaviour
         Debug.Log(curentPlayer == PlayerTyp.Ai);
 
         if (curentPlayer == PlayerTyp.Ai)
-        {            
+        {    
+            if(curentPlayer == PlayerTyp.Player)
             curentPlayer = PlayerTyp.Player;
         }
         else if(curentPlayer == PlayerTyp.Player)
         {
+            if(curentPlayer == PlayerTyp.Player)
+                Debug.Log("Ai Startet glerich");
+            StopCoroutine("aiDelay");
             StartCoroutine("aiDelay");
         }
     }
@@ -65,8 +70,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AiStartDelay()
     {
-        yield return new WaitForSeconds(0.3f);
-        GameEvents.current.StartAi();
+        yield return new WaitForSeconds(0.5f);
+        MemoryGameEvents.current.StartAi();
     }
 
     IEnumerator aiDelay()
@@ -76,10 +81,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.9f);      
         waitOnPlayer = false;
         curentPlayer = PlayerTyp.Ai;
-        GameEvents.current.StopPlayer();
-        GameEvents.current.StartAi();        
+        MemoryGameEvents.current.StopPlayer();
+        MemoryGameEvents.current.StartAi();        
         Debug.Log("zu Ai Gewechselt");
-        GameEvents.current.StartInfoPanel("Ai's turn");
-        //GameEvents.current.SwitchCheck();
+        MemoryGameEvents.current.StartInfoPanel("Ai's turn");
+        MemoryGameEvents.current.SwitchCheck();
     }
 }

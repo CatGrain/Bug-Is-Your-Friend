@@ -23,23 +23,23 @@ public class CardAnimationEvents : MonoBehaviour
     public  void CheckCard()
     {
         Debug.Log("Überprüfe Karte");
-        GameEvents.current.CheckCard(thisCard);
+        //MemoryGameEvents.current.CheckCard(thisCard);
     }
 
     public void ChangeImage()
     {
-        GameEvents.current.ChangeImage();
+        MemoryGameEvents.current.ChangeImage();
     }
 
     public void ChangeImageBack()
     {
         Debug.Log("Hier komt ein event");
-        GameEvents.current.ChangeImageBack();
+        MemoryGameEvents.current.ChangeImageBack();
     }
 
     public void NextPlayer()
     {
-       // GameEvents.current.ChangePlayer();
+       MemoryGameEvents.current.ChangePlayer();
     }
 
 }

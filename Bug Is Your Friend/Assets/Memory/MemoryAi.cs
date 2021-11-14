@@ -14,7 +14,7 @@ public class MemoryAi : MonoBehaviour
     private void Start()
     {
         pairsCount = CardBoard.transform.childCount;
-        GameEvents.current.strartAi += StartAiTrain;
+        MemoryGameEvents.current.strartAi += StartAiTrain;
         cards = CreateCardList();
         RenewedCardDeck = true;
     }
@@ -106,4 +106,7 @@ public class MemoryAi : MonoBehaviour
 
         return cards;
     }
+
+
+
 }
