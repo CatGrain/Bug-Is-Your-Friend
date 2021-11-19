@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class MemoryGameManager : MonoBehaviour
 {
     public PlayerTyp curentPlayer;
     bool waitOnPlayer = false;
