@@ -52,7 +52,7 @@ public class CardReview : MonoBehaviour
         {
             Debug.Log("Es Ist Kein Pärchen");
             lastCardId = null;
-            MemoryGameEvents.current.ChangePlayer();
+            //MemoryGameEvents.current.ChangePlayer();
             MemoryGameEvents.current.StartCoverUpAni();
             return false;
         }
@@ -62,7 +62,6 @@ public class CardReview : MonoBehaviour
     {
         if (AiCheck)
         {
-
              CheckCard(Id);
         }
         else
@@ -74,7 +73,6 @@ public class CardReview : MonoBehaviour
             }
 
             Debug.Log("BekomeKarte:" + Id.name);
-
             cardscurrentlyRevealed.Add(Id);
         }
     }
@@ -84,14 +82,13 @@ public class CardReview : MonoBehaviour
         if(cardscurrentlyRevealed.Count > 0)
         {
             Debug.Log("Ai wird gestartet");            
-            MemoryGameEvents.current.ChangePlayer();
-            
+            MemoryGameEvents.current.ChangePlayer();          
         }      
         else
         {         
-            MemoryGameEvents.current.StartPlayer();          
+            MemoryGameEvents.current.StartPlayer();
+            Debug.Log("Start Palyer");
         }
-
         cardscurrentlyRevealed.Clear();
     }
 

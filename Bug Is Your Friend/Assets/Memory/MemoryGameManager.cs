@@ -26,8 +26,7 @@ public class MemoryGameManager : MonoBehaviour
         }
         else if(curentPlayer == PlayerTyp.Ai)
         {            
-            StartCoroutine("AiStartDelay");
-            
+            StartCoroutine("AiStartDelay");   
             MemoryGameEvents.current.AddAiPoints();         
         }
     }
@@ -81,10 +80,10 @@ public class MemoryGameManager : MonoBehaviour
         yield return new WaitForSeconds(0.9f);      
         waitOnPlayer = false;
         curentPlayer = PlayerTyp.Ai;
-        MemoryGameEvents.current.StopPlayer();
+        //MemoryGameEvents.current.StopPlayer();
+        MemoryGameEvents.current.SwitchCheck();
         MemoryGameEvents.current.StartAi();        
         Debug.Log("zu Ai Gewechselt");
-        MemoryGameEvents.current.StartInfoPanel("Ai's turn");
-        MemoryGameEvents.current.SwitchCheck();
+        MemoryGameEvents.current.StartInfoPanel("Ai's turn");        
     }
 }
