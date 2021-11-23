@@ -38,7 +38,6 @@ public class MoveCubeGameManager : MonoBehaviour
 
     public void GameOver()
     {       
-        gameObject.SetActive(true);
         MoveCubeCharakterController.events.StoppPlayer();       
     }
 }
