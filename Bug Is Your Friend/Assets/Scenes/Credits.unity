@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7296176425293981394, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: deactivateCursorToStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7792192395514726700, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -922,7 +926,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SELCUK FOR TIPS AND TESTING
+  m_Text: GustaF FOR TIPS AND TESTING
 --- !u!222 &580591086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1863,7 +1867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STRTMENU/CREDITS
+  m_Text: STARTMENU/CREDITS
 --- !u!222 &1271613061
 CanvasRenderer:
   m_ObjectHideFlags: 0

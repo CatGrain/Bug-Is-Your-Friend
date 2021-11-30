@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    public CursorManager CursorManager;
     public void StartGame()
     {
-        SoundManager.Instance.PlaySound("MainTheme",SoundGroup.Music);
+        SoundManager.Instance.PlaySound("MainTheme",SoundGroup.Music);        
     }
 }

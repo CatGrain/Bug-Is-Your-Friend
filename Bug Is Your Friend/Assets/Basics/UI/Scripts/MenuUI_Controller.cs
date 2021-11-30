@@ -55,6 +55,7 @@ public class MenuUI_Controller : MonoBehaviour
     {
         if (uIManger != null)
             uIManger.ChangePannell(2);
+        OnOppenMenü?.Invoke();
         gameOverPanelIsOppen = true;
         uiOppen = false;
     }
@@ -63,6 +64,7 @@ public class MenuUI_Controller : MonoBehaviour
     {
         if (uIManger != null)
             uIManger.ChangePannell(4);
+        OnOppenMenü?.Invoke();
         gameOverPanelIsOppen = true;
         uiOppen = false;
     }

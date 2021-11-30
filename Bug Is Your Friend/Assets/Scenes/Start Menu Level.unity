@@ -354,11 +354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.size"
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.size"
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_Mode"
@@ -373,9 +373,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1409027242}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_Target"
+      value: 
+      objectReference: {fileID: 427963036}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_Target"
       value: 
       objectReference: {fileID: 1409027242}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_Target"
+      value: 
+      objectReference: {fileID: 427963036}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_CallState"
       value: 2
@@ -389,23 +397,47 @@ PrefabInstance:
       value: UnlockAnyInput
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName"
+      value: DeactivateCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName"
       value: BlockAnyInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName"
+      value: ActivateCursor
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName"
       value: InputManger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName"
+      value: CursorManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName"
       value: InputManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName"
+      value: CursorManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName"
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnCloseMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName"
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName"
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 96644021939101882, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: "OnOppenMen\xFC.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName"
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 96644022081098793, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
@@ -640,12 +672,27 @@ PrefabInstance:
       propertyPath: onStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7296176425293981394, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: deactivateCursorToStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8059169766002861116, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: m_Text
       value: START THE GAME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+--- !u!114 &427963036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7296176425293981394, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+  m_PrefabInstance: {fileID: 427963035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0907e43f993613429a1f878c2429aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791306483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4847c67c8ee2cf6459b3ce3beaefacee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CursorManager: {fileID: 0}
 --- !u!114 &1409027242 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 96644021939101765, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}

@@ -43,6 +43,8 @@ public class LevelLoader : MonoBehaviour
     
     IEnumerator LoadLevel(int Index)
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(Index);
