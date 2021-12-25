@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7296176425293981394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96644021939101764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0907e43f993613429a1f878c2429aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deactivateCursorToStart: 0
 --- !u!1 &96644022500790117
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 685551788157091734, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: webSetting
+      value: 
+      objectReference: {fileID: 8434528434114541047}
     - target: {fileID: 685551788157091735, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
       propertyPath: m_Name
       value: "Game Men\xFC"
@@ -263,11 +254,32 @@ PrefabInstance:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 96644021015858340}
+    - target: {fileID: 1960402263903934581, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960402263903934581, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WebSettingOpener, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960402263903934581, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5812128374369745835, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 96644021608547350}
-    m_RemovedComponents: []
+    - target: {fileID: 6423772163769648398, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 626898251821103232}
+    - target: {fileID: 6423772163769648398, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopGame
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 386485336601692140, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
 --- !u!1 &96644021939101764 stripped
 GameObject:
@@ -279,6 +291,44 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 685551788157091690, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
   m_PrefabInstance: {fileID: 636353907188359123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8434528434114541047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9068488704178317860, guid: c0c3a458cd1530a4fa0e96c1d56872f4, type: 3}
+  m_PrefabInstance: {fileID: 636353907188359123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8367be43db759740aa043c0209663d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &626898251821103232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96644021939101764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8367be43db759740aa043c0209663d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputManger: {fileID: 0}
+  playerHasPush: 0
+--- !u!114 &7296176425293981394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96644021939101764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0907e43f993613429a1f878c2429aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deactivateCursorToStart: 0
 --- !u!1001 &4507584610722788541
 PrefabInstance:
   m_ObjectHideFlags: 0

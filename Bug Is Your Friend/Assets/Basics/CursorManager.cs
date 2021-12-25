@@ -8,6 +8,7 @@ public class CursorManager : MonoBehaviour
 
     private void Start()
     {
+
         if(deactivateCursorToStart)
         {
             DeactivateCursor();
@@ -17,15 +18,22 @@ public class CursorManager : MonoBehaviour
             ActivateCursor();
         }
 
+#if UNITY_WEBGL
+        ActivateCursor();
+#endif
+
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void DeactivateCursor()
     {
+#if UNITY_STANDALONE
         Cursor.visible = false;
+#endif
     }
     public void ActivateCursor()
     {
+        
         Cursor.visible = true;       
     }
 

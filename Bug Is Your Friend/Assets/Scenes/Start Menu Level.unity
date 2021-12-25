@@ -644,6 +644,38 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1409027242}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnBlockInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InputManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432276593400170406, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546843601383956108, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2037801128610207021, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: levelInfo
       value: 

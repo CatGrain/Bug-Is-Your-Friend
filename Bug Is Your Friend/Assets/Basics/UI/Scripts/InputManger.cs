@@ -15,6 +15,7 @@ public class InputManger : MonoBehaviour
     //Variablen
     bool inputLocked = false;
     bool blockAnyInput = false;
+    public WebSettingOpener webSetting;
 
     //Event Start Metoden
     public void OnBlockInput()
@@ -47,8 +48,7 @@ public class InputManger : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {     
         PushPlayerEscape();
         PushPlayerAnyBuoton();
     }
@@ -58,17 +58,22 @@ public class InputManger : MonoBehaviour
         if (!inputLocked && Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("PlayerPushEscape");
-            OnPlayerPushEsc?.Invoke();
-           
+            OnPlayerPushEsc?.Invoke();           
         }
     }
 
     public void PushPlayerAnyBuoton()
     {
-        if(Input.anyKeyDown && !inputLocked && !Input.GetKeyDown(KeyCode.Escape) && !blockAnyInput)
-        {          
+#if UNITY_STANDALONE
+        if (Input.anyKeyDown && !inputLocked && !Input.GetKeyDown(KeyCode.Escape) && !blockAnyInput && !webSetting.playerHasPush) 
+        {              
             onPLayerPushAnyButton?.Invoke();
         }
+        else
+        {
+            blockAnyInput = false;
+        }
+#endif
     }
 
 
@@ -93,4 +98,12 @@ public class InputManger : MonoBehaviour
     {
         blockAnyInput = true;
     }
+
+    public void PushEsc()
+    {
+        
+        OnPlayerPushEsc.Invoke();
+    }
+    
+
 }

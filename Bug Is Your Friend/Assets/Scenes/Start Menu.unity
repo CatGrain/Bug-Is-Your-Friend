@@ -2425,6 +2425,10 @@ PrefabInstance:
       propertyPath: deactivateCursorToStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7577186073139697962, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7792192395514726700, guid: c4fa8f1144faccf43a6d3c6186a268ae, type: 3}
       propertyPath: m_IsActive
       value: 0
